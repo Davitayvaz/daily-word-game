@@ -1,4 +1,4 @@
-// START DATE = TODAY (Dec 15, 2025)
+// START DATE: DECEMBER 15, 2025
 const startDate = new Date(2025, 11, 15);
 startDate.setHours(0,0,0,0);
 
@@ -6,7 +6,7 @@ let dailyWord;
 let maxGuesses;
 let guesses = [];
 
-// Auto-build exception list from words.js
+// Any word in words.js is always allowed
 const exceptionWords = new Set(words.map(w => w.toUpperCase()));
 
 const board = document.getElementById("board");
@@ -14,15 +14,17 @@ const input = document.getElementById("guessInput");
 const button = document.getElementById("submitGuess");
 const wordLengthEl = document.getElementById("wordLength");
 
-// Init game
-function initGame() {
-  const today = new Date();
-  today.setHours(0,0,0,0);
+// Initialize game (normal or admin date)
+function initGame(forcedDate = null) {
+  const currentDate = forcedDate ? new Date(forcedDate) : new Date();
+  currentDate.setHours(0,0,0,0);
 
-  const diffDays = Math.floor((today - startDate) / 86400000);
+  const diffDays = Math.floor(
+    (currentDate - startDate) / 86400000
+  );
 
   if (diffDays < 0 || diffDays >= words.length) {
-    alert("No puzzle for today!");
+    alert("No puzzle for that date!");
     input.disabled = true;
     button.disabled = true;
     return;
@@ -41,7 +43,7 @@ function initGame() {
     `Today's word has ${dailyWord.length} letters.`;
 }
 
-// Dictionary check
+// Dictionary check (only if not exception)
 async function isEnglish(word) {
   try {
     const res = await fetch(
@@ -53,7 +55,7 @@ async function isEnglish(word) {
   }
 }
 
-// Draw guess
+// Draw guess row
 function drawGuess(guess) {
   const row = document.createElement("div");
 
@@ -68,17 +70,22 @@ function drawGuess(guess) {
     box.textContent = guess[i];
     row.appendChild(box);
   }
+
   board.appendChild(row);
 }
 
-// Guess logic
+// Handle guess
 async function submitGuess() {
-  let guess = input.value.toUpperCase();
+  const guess = input.value.toUpperCase();
 
-  // Admin date hack
+  // ADMIN MODE
   if (guess === "SECRET123") {
-    const d = prompt("YYYY-MM-DD");
-    if (d) initGame(new Date(d));
+    const dateInput = prompt(
+      "Enter date as YYYY-MM-DD (example: 2025-12-24)"
+    );
+    if (dateInput) {
+      initGame(dateInput);
+    }
     input.value = "";
     return;
   }
@@ -88,20 +95,20 @@ async function submitGuess() {
     return;
   }
 
-  // ✅ Correct word always works
+  // Correct word always wins
   if (guess === dailyWord) {
     drawGuess(guess);
-    alert("Nice 🎉 Come back tomorrow!");
+    alert("You got it 🎉 Come back tomorrow!");
     input.disabled = true;
     button.disabled = true;
     return;
   }
 
-  // ✅ Exception words (auto from words.js)
+  // Check dictionary ONLY if not exception
   if (!exceptionWords.has(guess)) {
     const valid = await isEnglish(guess);
     if (!valid) {
-      alert("Not a valid word");
+      alert("Not a valid English word");
       return;
     }
   }
@@ -122,4 +129,5 @@ input.addEventListener("keydown", e => {
   if (e.key === "Enter") submitGuess();
 });
 
+// Start with today's puzzle
 initGame();

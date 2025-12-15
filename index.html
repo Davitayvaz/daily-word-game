@@ -1,43 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Daily Word</title>
+  <title>Daily Word 💙</title>
+
+  <!-- ORDER MATTERS -->
   <script src="words.js"></script>
   <script src="game.js" defer></script>
+
   <style>
     body {
       font-family: Arial, sans-serif;
       text-align: center;
       margin-top: 40px;
     }
+
     .letter {
       display: inline-block;
-      width: 40px;
-      height: 40px;
-      line-height: 40px;
+      width: 42px;
+      height: 42px;
+      line-height: 42px;
       border: 2px solid #333;
       margin: 2px;
       font-size: 20px;
       text-transform: uppercase;
     }
+
     .correct { background: green; color: white; }
     .present { background: gold; color: white; }
-    .absent { background: #bbb; color: white; }
+    .absent  { background: #bbb; color: white; }
+
     input {
       font-size: 18px;
       padding: 6px;
       width: 260px;
       text-transform: uppercase;
     }
+
     button {
       font-size: 16px;
       padding: 6px 10px;
-      margin-left: 5px;
+      margin-left: 6px;
     }
   </style>
 </head>
-<body>
 
+<body>
   <h1>Daily Word 💙</h1>
   <p id="wordLength"></p>
 
@@ -45,6 +52,5 @@
 
   <input id="guessInput" placeholder="Type your guess">
   <button id="submitGuess">Guess</button>
-
 </body>
 </html>
