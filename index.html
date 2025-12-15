@@ -1,28 +1,50 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Daily Word</title>
-    <script src="words.js"></script>
-    <script src="game.js" defer></script>
-    <style>
-      body { font-family: sans-serif; text-align: center; margin-top: 20px; padding: 5px; }
-      .letter { display: inline-block; width: 12vw; height: 12vw; line-height: 12vw; 
-                border: 2px solid #333; margin: 1px; font-size: 5vw; text-transform: uppercase; }
-      .correct { background-color: green; color: white; }
-      .present { background-color: gold; color: white; }
-      .absent { background-color: #ccc; color: white; }
-      #board div { margin-bottom: 5px; }
-      input { font-size: 5vw; padding: 5px; width: 80vw; text-transform: uppercase; }
-      button { font-size: 4vw; padding: 3px 5px; margin-left: 3px; }
-    </style>
-  </head>
-  <body>
-    <h1>Daily Word 💙</h1>
-    <p>A little puzzle, made just for you.</p>
-    <p id="wordLength"></p>
+<head>
+  <title>Daily Word</title>
+  <script src="words.js"></script>
+  <script src="game.js" defer></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 40px;
+    }
+    .letter {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      border: 2px solid #333;
+      margin: 2px;
+      font-size: 20px;
+      text-transform: uppercase;
+    }
+    .correct { background: green; color: white; }
+    .present { background: gold; color: white; }
+    .absent { background: #bbb; color: white; }
+    input {
+      font-size: 18px;
+      padding: 6px;
+      width: 260px;
+      text-transform: uppercase;
+    }
+    button {
+      font-size: 16px;
+      padding: 6px 10px;
+      margin-left: 5px;
+    }
+  </style>
+</head>
+<body>
 
-    <div id="board"></div>
-    <input type="text" id="guessInput" maxlength="20" placeholder="Type your guess" autofocus>
-    <button id="submitGuess">Guess</button>
-  </body>
+  <h1>Daily Word 💙</h1>
+  <p id="wordLength"></p>
+
+  <div id="board"></div>
+
+  <input id="guessInput" placeholder="Type your guess">
+  <button id="submitGuess">Guess</button>
+
+</body>
 </html>
