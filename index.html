@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Daily Word</title>
+    <script src="words.js"></script>
+    <script src="game.js" defer></script>
+    <style>
+      body { font-family: sans-serif; text-align: center; margin-top: 50px; }
+      .letter { display: inline-block; width: 40px; height: 40px; line-height: 40px; 
+                border: 2px solid #333; margin: 2px; font-size: 24px; text-transform: uppercase; }
+      .correct { background-color: green; color: white; }
+      .present { background-color: gold; color: white; }
+      .absent { background-color: #ccc; color: white; }
+      #board div { margin-bottom: 5px; }
+      input { font-size: 18px; padding: 5px; width: 300px; text-transform: uppercase; }
+      button { font-size: 16px; padding: 5px 10px; margin-left: 5px; }
+    </style>
+  </head>
+  <body>
+    <h1>Daily Word 💙</h1>
+    <p>A little puzzle, made just for you.</p>
+    <p id="wordLength"></p>
+
+    <div id="board"></div>
+    <input type="text" id="guessInput" maxlength="20" placeholder="Type your guess" autofocus>
+    <button id="submitGuess">Guess</button>
+  </body>
+</html>
