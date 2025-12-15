@@ -1,12 +1,11 @@
-// START DATE: DECEMBER 15, 2025
+// Reference date ONLY (does NOT affect real date)
 const startDate = new Date(2025, 11, 15);
 startDate.setHours(0,0,0,0);
 
 let dailyWord;
-let maxGuesses;
 let guesses = [];
 
-// Any word in words.js is always allowed
+// Words in words.js are always valid guesses
 const exceptionWords = new Set(words.map(w => w.toUpperCase()));
 
 const board = document.getElementById("board");
@@ -14,24 +13,23 @@ const input = document.getElementById("guessInput");
 const button = document.getElementById("submitGuess");
 const wordLengthEl = document.getElementById("wordLength");
 
-// Initialize game (normal or admin date)
-function initGame(forcedDate = null) {
-  const currentDate = forcedDate ? new Date(forcedDate) : new Date();
-  currentDate.setHours(0,0,0,0);
+// Pick word for a given date
+function pickWord(forcedDate = null) {
+  const date = forcedDate ? forcedDate : new Date();
+  date.setHours(0,0,0,0);
 
   const diffDays = Math.floor(
-    (currentDate - startDate) / 86400000
+    (date - startDate) / 86400000
   );
 
   if (diffDays < 0 || diffDays >= words.length) {
-    alert("No puzzle for that date!");
+    alert("No puzzle for that date");
     input.disabled = true;
     button.disabled = true;
     return;
   }
 
   dailyWord = words[diffDays].toUpperCase();
-  maxGuesses = dailyWord.length;
   guesses = [];
 
   board.innerHTML = "";
@@ -43,19 +41,19 @@ function initGame(forcedDate = null) {
     `Today's word has ${dailyWord.length} letters.`;
 }
 
-// Dictionary check (only if not exception)
+// Dictionary check
 async function isEnglish(word) {
   try {
-    const res = await fetch(
+    const r = await fetch(
       `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`
     );
-    return res.ok;
+    return r.ok;
   } catch {
     return false;
   }
 }
 
-// Draw guess row
+// Draw a guess
 function drawGuess(guess) {
   const row = document.createElement("div");
 
@@ -80,11 +78,10 @@ async function submitGuess() {
 
   // ADMIN MODE
   if (guess === "SECRET123") {
-    const dateInput = prompt(
-      "Enter date as YYYY-MM-DD (example: 2025-12-24)"
-    );
-    if (dateInput) {
-      initGame(dateInput);
+    const raw = prompt("Enter date: YYYY-MM-DD");
+    if (raw) {
+      const [y,m,d] = raw.split("-").map(Number);
+      pickWord(new Date(y, m - 1, d)); // LOCAL date, no UTC bug
     }
     input.value = "";
     return;
@@ -95,7 +92,6 @@ async function submitGuess() {
     return;
   }
 
-  // Correct word always wins
   if (guess === dailyWord) {
     drawGuess(guess);
     alert("You got it 🎉 Come back tomorrow!");
@@ -104,11 +100,10 @@ async function submitGuess() {
     return;
   }
 
-  // Check dictionary ONLY if not exception
   if (!exceptionWords.has(guess)) {
     const valid = await isEnglish(guess);
     if (!valid) {
-      alert("Not a valid English word");
+      alert("Not a valid word");
       return;
     }
   }
@@ -117,7 +112,7 @@ async function submitGuess() {
   drawGuess(guess);
   input.value = "";
 
-  if (guesses.length >= maxGuesses) {
+  if (guesses.length >= dailyWord.length) {
     alert(`Out of guesses! Word was ${dailyWord}`);
     input.disabled = true;
     button.disabled = true;
@@ -129,5 +124,5 @@ input.addEventListener("keydown", e => {
   if (e.key === "Enter") submitGuess();
 });
 
-// Start with today's puzzle
-initGame();
+// Start with REAL today
+pickWord();
