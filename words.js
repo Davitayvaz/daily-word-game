@@ -24,7 +24,7 @@ const words = [
   "HAPPY",
 
   // Dec 23, 2025
-  "TOMORROW",
+  "TOMOROW",
 
   // Dec 24, 2025 🎄
   "SANTA",
