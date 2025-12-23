@@ -8,7 +8,7 @@ const words = [
     "LIGHT",
     "KIND",
     "HAPPY",
-    "TOMMOROW",
+    "TOMORROW",
   
     // Dec 24 →
     "SANTA",
