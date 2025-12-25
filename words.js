@@ -30,7 +30,7 @@ const words = [
   "SANTA",
 
   // Dec 25, 2025 🎁
-  "PRESENTS",
+  "MERRY",
 
   // Dec 26, 2025
   "TREE",
@@ -58,13 +58,13 @@ const words = [
 
 
   // Jan 3, 2026
-  "",
+  "RESOLUTION",
 
   // Jan 4, 2026
-  "",
+  "VACATION",
 
   // Jan 5, 2026
-  "",
+  "SCHOOL",
 
   // Jan 6, 2026
   "",
