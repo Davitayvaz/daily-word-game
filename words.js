@@ -36,7 +36,7 @@ const words = [
   "TREE",
 
   // Dec 27, 2025
-  "SKIPPY",
+  "PUPPY",
 
   // Dec 28, 2025
   "JAN",
