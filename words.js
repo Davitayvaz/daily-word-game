@@ -67,19 +67,19 @@ const words = [
   "SCHOOL",
 
   // Jan 6, 2026
-  "",
+  "SKIING",
 
   // Jan 7, 2026
-  "",
+  "ORTHODOX",
 
   // Jan 8, 2026
-  "",
+  "ROCK",
 
   // Jan 9, 2026
-  "",
+  "PHONE",
 
   // Jan 10, 2026
-  "",
+  "CHILLY",
 
   // Jan 11, 2026
   "",
