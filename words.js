@@ -82,38 +82,37 @@ const words = [
   "CHILLY",
 
   // Jan 11, 2026
-  "",
+  "FIREPLACE",
 
   // Jan 12, 2026
-  "",
+  "SLEDDING",
 
   // Jan 13, 2026
-  "",
+  "HIBERNATION",
 
   // Jan 14, 2026
-  "",
+  "SLUSH",
 
   // Jan 15, 2026
-  "",
+  "CHOCOLATE",
 
   // Jan 16, 2026
-  "",
+  "PENGUIN",
 
   // Jan 17, 2026
-  "",
+  "HOCKEY",
 
   // Jan 18, 2026
-  "",
+  "MINT",
 
   // Jan 19, 2026
-  "",
+  "TREAT",
 
   // Jan 20, 2026
-  "",
+  "LAYER",
 
   // Jan 21, 2026
-  "",
+  "CONTINUOUS",
 
-  // Jan 22, 2026
-  ""
+
 ];
