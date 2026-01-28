@@ -126,13 +126,13 @@ const words = [
   // Jan 27, 2026
   "ALLOW",
   // Jan 28, 2026
-  "REFLECT",
+  "FATHER",
   // Jan 29, 2026
   "FIREFIGHTER",
   // Jan 30, 2026
   "EXTINCT",
   // Jan 31, 2026
-  "FINGER",
+  "REFLECT",
 
   // ======================
   // February 2026 (BLANK)
