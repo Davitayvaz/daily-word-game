@@ -139,88 +139,88 @@ const words = [
   // ======================
 
   // Feb 1, 2026
-  "",
+  "HISTORY",
 
   // Feb 2, 2026
-  "",
+  "FLAVOR",
 
   // Feb 3, 2026
-  "",
+  "TALK",
 
   // Feb 4, 2026
-  "",
+  "SIGN",
 
   // Feb 5, 2026
-  "",
+  "CHARITY",
 
   // Feb 6, 2026
-  "",
+  "SPEND",
 
   // Feb 7, 2026
-  "",
+  "ENCOURAGE",
 
   // Feb 8, 2026
-  "",
+  "MUTTER",
 
   // Feb 9, 2026
-  "",
+  "BEAT",
 
   // Feb 10, 2026
-  "",
+  "DICTATE",
 
   // Feb 11, 2026
-  "",
+  "OCCUPY",
 
   // Feb 12, 2026
-  "",
+  "TOLERATE",
 
   // Feb 13, 2026
-  "",
+  "CODE",
 
   // Feb 14, 2026 ❤️
-  "",
+  "LOVELY",
 
   // Feb 15, 2026
-  "",
+  "WORM",
 
   // Feb 16, 2026
-  "",
+  "CONCERN",
 
   // Feb 17, 2026
-  "",
+  "BRACKET",
 
   // Feb 18, 2026
-  "",
+  "PALACE",
 
   // Feb 19, 2026
-  "",
+  "STUFF",
 
   // Feb 20, 2026
-  "",
+  "CONCLUSION",
 
   // Feb 21, 2026
-  "",
+  "FACADE",
 
   // Feb 22, 2026
-  "",
+  "DESIGNER",
 
   // Feb 23, 2026
-  "",
+  "EXTENSION",
 
   // Feb 24, 2026
-  "",
+  "FRUIT",
 
   // Feb 25, 2026
-  "",
+  "AGENT",
 
   // Feb 26, 2026
-  "",
+  "INVISIBLE",
 
   // Feb 27, 2026
-  "",
+  "FEATURE",
 
   // Feb 28, 2026
-  "",
+  "FINAL",
 
   // ======================
   // March 2026 (BLANK)
