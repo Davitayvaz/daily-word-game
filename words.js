@@ -236,7 +236,7 @@ const words = [
   "EXTEND",
 
   // Mar 4, 2026
-  "SULPHUR",
+  "CELEBRATION",
 
   // Mar 5, 2026
   "HARBOR",
@@ -284,7 +284,7 @@ const words = [
   "CANDLE",
 
   // Mar 20, 2026
-  "",
+  "SULPHUR",
 
   // Mar 21, 2026
   "",
