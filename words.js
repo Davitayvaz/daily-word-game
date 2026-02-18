@@ -227,61 +227,61 @@ const words = [
   // ======================
 
   // Mar 1, 2026
-  "",
+  "COLLECT",
 
   // Mar 2, 2026
-  "",
+  "CEILING",
 
   // Mar 3, 2026
-  "",
+  "EXTEND",
 
   // Mar 4, 2026
-  "",
+  "SULPHUR",
 
   // Mar 5, 2026
-  "",
+  "HARBOR",
 
   // Mar 6, 2026
-  "",
+  "IMPORTANT",
 
   // Mar 7, 2026
-  "",
+  "MASTERMIND",
 
   // Mar 8, 2026
-  "",
+  "MATCH",
 
   // Mar 9, 2026
-  "",
+  "PROFOUND",
 
   // Mar 10, 2026
-  "",
+  "FORCE",
 
   // Mar 11, 2026
-  "",
+  "COMPETITION",
 
   // Mar 12, 2026
-  "",
+  "JUSTICE",
 
   // Mar 13, 2026
-  "",
+  "ANXIETY",
 
   // Mar 14, 2026
-  "",
+  "POPULATION",
 
   // Mar 15, 2026
-  "",
+  "MONSTER",
 
   // Mar 16, 2026
-  "",
+  "VIOLATION",
 
   // Mar 17, 2026 🍀
-  "",
+  "SAINT",
 
   // Mar 18, 2026
-  "",
+  "FAITH",
 
   // Mar 19, 2026
-  "",
+  "CANDLE",
 
   // Mar 20, 2026
   "",
