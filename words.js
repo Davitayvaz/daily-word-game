@@ -315,30 +315,30 @@ const words = [
 
   // Mar 30, 2026
   "CALLERS",
-
-  // Mar 31, 2026
+// made counting error idk what happend
+  // Apr 1, 2026
   "PASSWORD",
   
-  // Apr 1
-  "PRANK",
   // Apr 2
-  "PRIVACY",
+  "PRANK",
   // Apr 3
-  "PHONEBOOK",
+  "PRIVACY",
   // Apr 4
-  "DESTROYED",
+  "PHONEBOOK",
   // Apr 5
-  "FLAGS",
+  "DESTROYED",
   // Apr 6
-  "REPORT",
+  "FLAGS",
   // Apr 7
-  "SPACE",
+  "REPORT",
   // Apr 8
-  "INDEX",
+  "SPACE",
   // Apr 9
-  "CONTROL",
+  "INDEX",
   // Apr 10
-  "ESCAPE",
+  "CONTROL",
   // Apr 11
+  "ESCAPE",
+  // Apr 12
   "LETTER",
 ];
