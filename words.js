@@ -317,5 +317,28 @@ const words = [
   "CALLERS",
 
   // Mar 31, 2026
-  "",
+  "PASSWORD",
+  
+  // Apr 1
+  "PRANK",
+  // Apr 2
+  "PRIVACY",
+  // Apr 3
+  "PHONEBOOK",
+  // Apr 4
+  "DESTROYED",
+  // Apr 5
+  "FLAGS",
+  // Apr 6
+  "REPORT",
+  // Apr 7
+  "SPACE",
+  // Apr 8
+  "INDEX",
+  // Apr 9
+  "CONTROL",
+  // Apr 10
+  "ESCAPE",
+  // Apr 11
+  "LETTER",
 ];
