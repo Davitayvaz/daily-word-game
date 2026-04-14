@@ -339,6 +339,45 @@ const words = [
   "CONTROL",
   // Apr 11
   "ESCAPE",
-  // Apr 12
+  // Apr 13
   "LETTER",
+  // Apr 14
+  "PREVIEW",
+  // Apr 15
+  "VIDEO",
+  // Apr 16
+  "GAMBLE",
+  // Apr 17
+  "ISLAND",
+  // Apr 18
+  "HOTEL",
+  // Apr 19
+  "WATERMELON",
+  // Apr 20
+  "ALTERNATE",
+  // Apr 21
+  "TOGGLE",
+  // Apr 22
+  "TABLET",
+  // Apr 23
+  "SWORD",
+  // Apr 24
+  "BOXING",
+  // Apr 25
+  "POPSICLE",
+  // Apr 26
+  "WATCH",
+  // Apr 27
+  "CHESS",
+  // Apr 28
+  "BREAD",
+  // Apr 29
+  "VILLAGE",
+  // Apr 30
+  "CHESTPLATE",
+  // MAY 1
+  "WONDERS",
+  // MAY 2
+  "GLASSES",
+  
 ];
