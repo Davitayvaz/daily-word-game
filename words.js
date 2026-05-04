@@ -379,5 +379,37 @@ const words = [
   "WONDERS",
   // MAY 2
   "GLASSES",
+  // MAY 3
+  "WELCOME"
+  // MAY 4
+  "PLAINTIFF"
+  // MAY 5 
+  "CARBON"
+  // MAY 6
+  "MISLEAD"
+  // MAY 7
+  "BATHTUB"
+  // MAY 8
+  "STUNNING"
+  // MAY 9
+  "BRANCH"
+  // MAY 10
+  "CONTEMPT"
+  // MAY 11
+  "SAMPLE"
+  // MAY 12
+  "TURKEY"
+  // MAY 13
+  "CONSTITUTIONAL"
+  // MAY 14
+  "GRAVITY"
+  // MAY 15
+  "DOCTOR"
+  // MAY 16
+  "TUMBLE"
+  // MAY 17
+  "FINISH"
+ 
+
   
 ];
