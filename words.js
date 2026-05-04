@@ -380,41 +380,5 @@ const words = [
   // MAY 2
   "GLASSES",
   // MAY 3
-  "WELCOME"
-  // MAY 4
-  "CONVERSATION"
-  // MAY 5
-  "GRANDMOTHER"
-  // MAY 6
-  "GLORY"
-  // MAY 7
-  "CONTRACTION"
-  // MAY 8
-  "MOVEMENT"
-  // MAY 9
-  "SENSATION"
-  // MAY 10
-  "TRENCH"
-  // MAY 11
-  "CHANGE"
-  // MAY 12
-  "FAMILY"
-  // MAY 13
-  "IMPRESS"
-  // MAY 14
-  "INSPIRATION"
-  // MAY 15
-  "ARRANGE"
-  // MAY 16
-  "APPROVAL" 
-  // MAY 17
-  "GRADIENT"
-  // MAY 18
-  "CHOOSE"
-  // MAY 19
-  "FINAL"
-  // MAY 20
-  "SHRINK"
-  
   
 ];
