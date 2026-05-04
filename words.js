@@ -410,7 +410,7 @@ const words = [
   // MAY 17
   "GRADIENT"
   // MAY 18
-  ""
+  "CHOOSE"
   // MAY 19
   "FINAL"
   // MAY 20
