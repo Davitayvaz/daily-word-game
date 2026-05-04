@@ -379,6 +379,5 @@ const words = [
   "WONDERS",
   // MAY 2
   "GLASSES",
-  // MAY 3
   
 ];
