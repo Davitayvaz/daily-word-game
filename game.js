@@ -1,44 +1,50 @@
-// Reference date ONLY (does NOT affect real date)
-const startDate = new Date(2025, 11, 15);
-startDate.setHours(0,0,0,0);
+// Day 0 = Nov 13, 2026. words[0] is that day's answer.
+const startDate = new Date(2026, 10, 13);
+startDate.setHours(0, 0, 0, 0);
+
+const MAX_GUESSES = 6;
 
 let dailyWord;
 let guesses = [];
 
-// Words in words.js are always valid guesses
-const exceptionWords = new Set(words.map(w => w.toUpperCase()));
+// Answers are always accepted as guesses, even if the dictionary API is down
+const allWords = new Set(words);
 
 const board = document.getElementById("board");
 const input = document.getElementById("guessInput");
 const button = document.getElementById("submitGuess");
 const wordLengthEl = document.getElementById("wordLength");
 
-// Pick word for a given date
+// Pick the word for a given date (defaults to today)
 function pickWord(forcedDate = null) {
-  const date = forcedDate ? forcedDate : new Date();
-  date.setHours(0,0,0,0);
+  const date = forcedDate ? new Date(forcedDate) : new Date();
+  date.setHours(0, 0, 0, 0);
 
-  const diffDays = Math.floor(
-    (date - startDate) / 86400000
-  );
+  // Round so daylight-saving clock changes can't shift the day index
+  const dayIndex = Math.round((date - startDate) / 86400000);
 
-  if (diffDays < 0 || diffDays >= words.length) {
-    alert("No puzzle for that date");
-    input.disabled = true;
-    button.disabled = true;
+  guesses = [];
+  board.innerHTML = "";
+  input.value = "";
+  input.disabled = true;
+  button.disabled = true;
+
+  if (dayIndex < 0) {
+    dailyWord = null;
+    wordLengthEl.textContent = "No puzzle for that date.";
     return;
   }
 
-  dailyWord = words[diffDays].toUpperCase();
-  guesses = [];
+  if (dayIndex >= words.length) {
+    dailyWord = null;
+    wordLengthEl.textContent = "No new word yet — check back soon!";
+    return;
+  }
 
-  board.innerHTML = "";
-  input.value = "";
+  dailyWord = words[dayIndex];
+  wordLengthEl.textContent = `Today's word has ${dailyWord.length} letters.`;
   input.disabled = false;
   button.disabled = false;
-
-  wordLengthEl.textContent =
-    `Today's word has ${dailyWord.length} letters.`;
 }
 
 // Dictionary check
@@ -53,18 +59,31 @@ async function isEnglish(word) {
   }
 }
 
-// Draw a guess
+// Draw a guess, marking repeats correctly (green first, then yellow)
 function drawGuess(guess) {
   const row = document.createElement("div");
+  const marks = new Array(guess.length).fill("absent");
+  const unmatched = dailyWord.split("");
 
-  for (let i = 0; i < dailyWord.length; i++) {
+  for (let i = 0; i < guess.length; i++) {
+    if (guess[i] === dailyWord[i]) {
+      marks[i] = "correct";
+      unmatched[i] = null;
+    }
+  }
+
+  for (let i = 0; i < guess.length; i++) {
+    if (marks[i] === "correct") continue;
+    const j = unmatched.indexOf(guess[i]);
+    if (j !== -1) {
+      marks[i] = "present";
+      unmatched[j] = null;
+    }
+  }
+
+  for (let i = 0; i < guess.length; i++) {
     const box = document.createElement("span");
-    box.className = "letter";
-
-    if (guess[i] === dailyWord[i]) box.classList.add("correct");
-    else if (dailyWord.includes(guess[i])) box.classList.add("present");
-    else box.classList.add("absent");
-
+    box.className = "letter " + marks[i];
     box.textContent = guess[i];
     row.appendChild(box);
   }
@@ -76,16 +95,18 @@ function drawGuess(guess) {
 async function submitGuess() {
   const guess = input.value.toUpperCase();
 
-  // ADMIN MODE
+  // ADMIN MODE: type SECRET123, then a date, to preview another day
   if (guess === "SECRET123") {
     const raw = prompt("Enter date: YYYY-MM-DD");
     if (raw) {
-      const [y,m,d] = raw.split("-").map(Number);
-      pickWord(new Date(y, m - 1, d)); // LOCAL date, no UTC bug
+      const [y, m, d] = raw.split("-").map(Number);
+      pickWord(new Date(y, m - 1, d));
     }
     input.value = "";
     return;
   }
+
+  if (!dailyWord) return;
 
   if (guess.length !== dailyWord.length) {
     alert(`Must be ${dailyWord.length} letters`);
@@ -100,19 +121,16 @@ async function submitGuess() {
     return;
   }
 
-  if (!exceptionWords.has(guess)) {
-    const valid = await isEnglish(guess);
-    if (!valid) {
-      alert("Not a valid word");
-      return;
-    }
+  if (!allWords.has(guess) && !(await isEnglish(guess))) {
+    alert("Not a valid word");
+    return;
   }
 
   guesses.push(guess);
   drawGuess(guess);
   input.value = "";
 
-  if (guesses.length >= dailyWord.length) {
+  if (guesses.length >= MAX_GUESSES) {
     alert(`Out of guesses! Word was ${dailyWord}`);
     input.disabled = true;
     button.disabled = true;
@@ -124,5 +142,5 @@ input.addEventListener("keydown", e => {
   if (e.key === "Enter") submitGuess();
 });
 
-// Start with REAL today
+// Start with today
 pickWord();
